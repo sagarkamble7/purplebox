@@ -1,0 +1,19 @@
+def max_profit(prices):
+    if not prices or len(prices) < 2:
+        return "Invalid data"
+
+    min_price = prices[0]  # Initialize minimum price
+    max_profit = 0
+    best_buy = best_sell = 0
+
+    for price in prices:
+        if price < min_price:
+            min_price = price  # Update minimum price
+        
+        profit = price - min_price
+        if profit > max_profit:
+            max_profit = profit
+            best_buy = min_price
+            best_sell = price
+
+    return f"Best price to buy: {best_buy}, Best price to sell: {best_sell}"
